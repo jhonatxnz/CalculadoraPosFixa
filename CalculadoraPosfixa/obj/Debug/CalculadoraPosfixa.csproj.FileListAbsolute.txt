@@ -1,0 +1,10 @@
+C:\Users\Jhon\Documents\Cotuca\4_Semestre\Chico EstDados\CalculadoraPosfixa\CalculadoraPosfixa\bin\Debug\CalculadoraPosfixa.exe.config
+C:\Users\Jhon\Documents\Cotuca\4_Semestre\Chico EstDados\CalculadoraPosfixa\CalculadoraPosfixa\bin\Debug\CalculadoraPosfixa.exe
+C:\Users\Jhon\Documents\Cotuca\4_Semestre\Chico EstDados\CalculadoraPosfixa\CalculadoraPosfixa\bin\Debug\CalculadoraPosfixa.pdb
+C:\Users\Jhon\Documents\Cotuca\4_Semestre\Chico EstDados\CalculadoraPosfixa\CalculadoraPosfixa\obj\Debug\CalculadoraPosfixa.csproj.AssemblyReference.cache
+C:\Users\Jhon\Documents\Cotuca\4_Semestre\Chico EstDados\CalculadoraPosfixa\CalculadoraPosfixa\obj\Debug\CalculadoraPosfixa.calculadora.resources
+C:\Users\Jhon\Documents\Cotuca\4_Semestre\Chico EstDados\CalculadoraPosfixa\CalculadoraPosfixa\obj\Debug\CalculadoraPosfixa.Properties.Resources.resources
+C:\Users\Jhon\Documents\Cotuca\4_Semestre\Chico EstDados\CalculadoraPosfixa\CalculadoraPosfixa\obj\Debug\CalculadoraPosfixa.csproj.GenerateResource.cache
+C:\Users\Jhon\Documents\Cotuca\4_Semestre\Chico EstDados\CalculadoraPosfixa\CalculadoraPosfixa\obj\Debug\CalculadoraPosfixa.csproj.CoreCompileInputs.cache
+C:\Users\Jhon\Documents\Cotuca\4_Semestre\Chico EstDados\CalculadoraPosfixa\CalculadoraPosfixa\obj\Debug\CalculadoraPosfixa.exe
+C:\Users\Jhon\Documents\Cotuca\4_Semestre\Chico EstDados\CalculadoraPosfixa\CalculadoraPosfixa\obj\Debug\CalculadoraPosfixa.pdb

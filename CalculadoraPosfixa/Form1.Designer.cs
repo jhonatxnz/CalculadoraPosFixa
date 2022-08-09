@@ -62,6 +62,7 @@ namespace CalculadoraPosfixa
             this.txtVisor.Name = "txtVisor";
             this.txtVisor.Size = new System.Drawing.Size(494, 26);
             this.txtVisor.TabIndex = 0;
+            this.txtVisor.TextChanged += new System.EventHandler(this.txtVisor_TextChanged);
             // 
             // label1
             // 
@@ -78,6 +79,7 @@ namespace CalculadoraPosfixa
             this.txtResultado.Location = new System.Drawing.Point(13, 105);
             this.txtResultado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtResultado.Name = "txtResultado";
+            this.txtResultado.ReadOnly = true;
             this.txtResultado.Size = new System.Drawing.Size(494, 26);
             this.txtResultado.TabIndex = 2;
             // 
@@ -101,6 +103,7 @@ namespace CalculadoraPosfixa
             this.btnPotencia.TabIndex = 4;
             this.btnPotencia.Text = "^";
             this.btnPotencia.UseVisualStyleBackColor = false;
+            this.btnPotencia.Click += new System.EventHandler(this.botoes_Click);
             // 
             // btnDivisao
             // 
@@ -112,6 +115,7 @@ namespace CalculadoraPosfixa
             this.btnDivisao.TabIndex = 5;
             this.btnDivisao.Text = "/";
             this.btnDivisao.UseVisualStyleBackColor = false;
+            this.btnDivisao.Click += new System.EventHandler(this.botoes_Click);
             // 
             // btnMultiplicar
             // 
@@ -123,6 +127,7 @@ namespace CalculadoraPosfixa
             this.btnMultiplicar.TabIndex = 6;
             this.btnMultiplicar.Text = "*";
             this.btnMultiplicar.UseVisualStyleBackColor = false;
+            this.btnMultiplicar.Click += new System.EventHandler(this.botoes_Click);
             // 
             // btnSubtrair
             // 
@@ -134,6 +139,7 @@ namespace CalculadoraPosfixa
             this.btnSubtrair.TabIndex = 7;
             this.btnSubtrair.Text = "-";
             this.btnSubtrair.UseVisualStyleBackColor = false;
+            this.btnSubtrair.Click += new System.EventHandler(this.botoes_Click);
             // 
             // button5
             // 
@@ -145,6 +151,7 @@ namespace CalculadoraPosfixa
             this.button5.TabIndex = 8;
             this.button5.Text = "7";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.botoes_Click);
             // 
             // button6
             // 
@@ -156,6 +163,7 @@ namespace CalculadoraPosfixa
             this.button6.TabIndex = 9;
             this.button6.Text = "8";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.botoes_Click);
             // 
             // button7
             // 
@@ -167,6 +175,7 @@ namespace CalculadoraPosfixa
             this.button7.TabIndex = 10;
             this.button7.Text = "9";
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.botoes_Click);
             // 
             // btnAdicionar
             // 
@@ -178,6 +187,7 @@ namespace CalculadoraPosfixa
             this.btnAdicionar.TabIndex = 11;
             this.btnAdicionar.Text = "+";
             this.btnAdicionar.UseVisualStyleBackColor = false;
+            this.btnAdicionar.Click += new System.EventHandler(this.botoes_Click);
             // 
             // button9
             // 
@@ -189,6 +199,7 @@ namespace CalculadoraPosfixa
             this.button9.TabIndex = 12;
             this.button9.Text = "4";
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.botoes_Click);
             // 
             // button10
             // 
@@ -200,6 +211,7 @@ namespace CalculadoraPosfixa
             this.button10.TabIndex = 13;
             this.button10.Text = "5";
             this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.botoes_Click);
             // 
             // button11
             // 
@@ -211,6 +223,7 @@ namespace CalculadoraPosfixa
             this.button11.TabIndex = 14;
             this.button11.Text = "6";
             this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.botoes_Click);
             // 
             // btnDouble
             // 
@@ -222,6 +235,7 @@ namespace CalculadoraPosfixa
             this.btnDouble.TabIndex = 15;
             this.btnDouble.Text = ".";
             this.btnDouble.UseVisualStyleBackColor = false;
+            this.btnDouble.Click += new System.EventHandler(this.botoes_Click);
             // 
             // button13
             // 
@@ -233,6 +247,7 @@ namespace CalculadoraPosfixa
             this.button13.TabIndex = 16;
             this.button13.Text = "2";
             this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.botoes_Click);
             // 
             // button14
             // 
@@ -244,6 +259,7 @@ namespace CalculadoraPosfixa
             this.button14.TabIndex = 17;
             this.button14.Text = "1";
             this.button14.UseVisualStyleBackColor = false;
+            this.button14.Click += new System.EventHandler(this.botoes_Click);
             // 
             // button15
             // 
@@ -255,6 +271,7 @@ namespace CalculadoraPosfixa
             this.button15.TabIndex = 18;
             this.button15.Text = "3";
             this.button15.UseVisualStyleBackColor = false;
+            this.button15.Click += new System.EventHandler(this.botoes_Click);
             // 
             // btnParenteses
             // 
@@ -266,6 +283,7 @@ namespace CalculadoraPosfixa
             this.btnParenteses.TabIndex = 19;
             this.btnParenteses.Text = ")";
             this.btnParenteses.UseVisualStyleBackColor = false;
+            this.btnParenteses.Click += new System.EventHandler(this.botoes_Click);
             // 
             // button17
             // 
@@ -277,6 +295,7 @@ namespace CalculadoraPosfixa
             this.button17.TabIndex = 20;
             this.button17.Text = "0";
             this.button17.UseVisualStyleBackColor = false;
+            this.button17.Click += new System.EventHandler(this.botoes_Click);
             // 
             // btnIgual
             // 
@@ -288,6 +307,7 @@ namespace CalculadoraPosfixa
             this.btnIgual.TabIndex = 21;
             this.btnIgual.Text = "=";
             this.btnIgual.UseVisualStyleBackColor = false;
+            this.btnIgual.Click += new System.EventHandler(this.btnIgual_Click);
             // 
             // btnLimpar
             // 
@@ -299,6 +319,7 @@ namespace CalculadoraPosfixa
             this.btnLimpar.TabIndex = 22;
             this.btnLimpar.Text = "C";
             this.btnLimpar.UseVisualStyleBackColor = false;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnParenteses2
             // 
@@ -310,6 +331,7 @@ namespace CalculadoraPosfixa
             this.btnParenteses2.TabIndex = 23;
             this.btnParenteses2.Text = "(";
             this.btnParenteses2.UseVisualStyleBackColor = false;
+            this.btnParenteses2.Click += new System.EventHandler(this.botoes_Click);
             // 
             // calculadora
             // 
