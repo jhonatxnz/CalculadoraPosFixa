@@ -20,10 +20,11 @@ namespace CalculadoraPosfixa
 
         private void txtVisor_TextChanged(object sender, EventArgs e)
         {
+
             for (int i = 0; i < txtVisor.Text.Length; i++) //percorre todos os valores que estao no txtCodigo
-            {
+            { 
                 char numero = txtVisor.Text[i]; //numero recebe o que foi digitado no txtCodigo
-                if (char.IsLetter(numero) || "!@#$%&".Contains(numero)) //se o que foi digitado no txtCodigo não seja numero
+                if (char.IsLetter(numero) || "!@#$%&=".Contains(numero)) //se o que foi digitado no txtCodigo não seja numero
                 {
                     MessageBox.Show("Digite um valor válido!(Sem letras e sem caracteres que não fazem uma operação matemática!)"); //um aviso será disparado
                     txtVisor.Text = txtVisor.Text.Substring(0, txtVisor.Text.Length - 1);
@@ -40,13 +41,7 @@ namespace CalculadoraPosfixa
         {
             //mostrar essa parte
             char letra = (sender as Button).Text[0];
-            if (letra.ToString() == ".")
-            {
-                txtVisor.Text = txtVisor.Text.Substring(0, txtVisor.Text.Length - 1);
-                txtVisor.Text += letra.ToString();
-            }
-            else
-                txtVisor.Text += letra.ToString() + " ";
+            txtVisor.Text += letra.ToString();
         }
         private void btnIgual_Click(object sender, EventArgs e)
         {
@@ -54,16 +49,29 @@ namespace CalculadoraPosfixa
             if (txtVisor.Text != "")
             {
                 string expressao = txtVisor.Text;
-                string[] values = expressao.Split(' ');
-
-                foreach (var caracter in values)
+                char[] values;
+                values = expressao.ToCharArray(0, expressao.Length);
+                char letra = 'A';
+                for (int j = 0;j < expressao.Length; j++)
                 {
-                    MessageBox.Show(caracter);
+                    if ("1234567890.".Contains(expressao[j])) {
+                        MessageBox.Show(values[j].ToString());
+                        values[j] = letra++;
+                        MessageBox.Show(values[j].ToString());
+                    }
+                        
                 }
                 MessageBox.Show(values.Length.ToString());
+                
 
-                for (int i = 0; i < values.Length; i++){
-                }
+                //foreach (var caracter in values)
+                //{
+                //    MessageBox.Show(caracter);
+                //}
+                //MessageBox.Show(values.Length.ToString());
+
+                //for (int i = 0; i < values.Length; i++){
+                //}
             }
             else
             {

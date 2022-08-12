@@ -8,3 +8,14 @@ C:\Users\Jhon\Documents\Cotuca\4_Semestre\Chico EstDados\CalculadoraPosfixa\Calc
 C:\Users\Jhon\Documents\Cotuca\4_Semestre\Chico EstDados\CalculadoraPosfixa\CalculadoraPosfixa\obj\Debug\CalculadoraPosfixa.csproj.CoreCompileInputs.cache
 C:\Users\Jhon\Documents\Cotuca\4_Semestre\Chico EstDados\CalculadoraPosfixa\CalculadoraPosfixa\obj\Debug\CalculadoraPosfixa.exe
 C:\Users\Jhon\Documents\Cotuca\4_Semestre\Chico EstDados\CalculadoraPosfixa\CalculadoraPosfixa\obj\Debug\CalculadoraPosfixa.pdb
+C:\Users\u21686\Documents\4Semestre\chico estDds\CalculadoraPosFixa\CalculadoraPosfixa\bin\Debug\CalculadoraPosfixa.exe.config
+C:\Users\u21686\Documents\4Semestre\chico estDds\CalculadoraPosFixa\CalculadoraPosfixa\bin\Debug\CalculadoraPosfixa.exe
+C:\Users\u21686\Documents\4Semestre\chico estDds\CalculadoraPosFixa\CalculadoraPosfixa\bin\Debug\CalculadoraPosfixa.pdb
+C:\Users\u21686\Documents\4Semestre\chico estDds\CalculadoraPosFixa\CalculadoraPosfixa\obj\Debug\CalculadoraPosfixa.csproj.AssemblyReference.cache
+C:\Users\u21686\Documents\4Semestre\chico estDds\CalculadoraPosFixa\CalculadoraPosfixa\obj\Debug\CalculadoraPosfixa.csproj.SuggestedBindingRedirects.cache
+C:\Users\u21686\Documents\4Semestre\chico estDds\CalculadoraPosFixa\CalculadoraPosfixa\obj\Debug\CalculadoraPosfixa.calculadora.resources
+C:\Users\u21686\Documents\4Semestre\chico estDds\CalculadoraPosFixa\CalculadoraPosfixa\obj\Debug\CalculadoraPosfixa.Properties.Resources.resources
+C:\Users\u21686\Documents\4Semestre\chico estDds\CalculadoraPosFixa\CalculadoraPosfixa\obj\Debug\CalculadoraPosfixa.csproj.GenerateResource.cache
+C:\Users\u21686\Documents\4Semestre\chico estDds\CalculadoraPosFixa\CalculadoraPosfixa\obj\Debug\CalculadoraPosfixa.csproj.CoreCompileInputs.cache
+C:\Users\u21686\Documents\4Semestre\chico estDds\CalculadoraPosFixa\CalculadoraPosfixa\obj\Debug\CalculadoraPosfixa.exe
+C:\Users\u21686\Documents\4Semestre\chico estDds\CalculadoraPosFixa\CalculadoraPosfixa\obj\Debug\CalculadoraPosfixa.pdb
