@@ -34,7 +34,7 @@ namespace CalculadoraPosfixa
                 else if (")]}.".Contains(txtVisor.Text.Substring(0, 1)))
                 {
                     MessageBox.Show("Expressão iniciada de maneira incorreta");
-                    txtVisor.Text = txtVisor.Text.Substring(0, txtVisor.Text.Length - 1);
+                    txtVisor.Text = txtVisor.Text.Substring(0, txtVisor.Text.Length - 2);
                 }
             }
         }
@@ -53,8 +53,6 @@ namespace CalculadoraPosfixa
         }
         private void btnIgual_Click(object sender, EventArgs e)
         {
-
-
             //mostrar essa parte
             //fazer precedencia
             char cadeiaVazia = ' ';
@@ -68,10 +66,7 @@ namespace CalculadoraPosfixa
                 PilhaLista<string> operadores = new PilhaLista<string>();
                 string expressao = txtVisor.Text;
 
-
-
                 string[] values = expressao.Split(' ');
-
 
                 char letra = 'A';
 
@@ -84,6 +79,7 @@ namespace CalculadoraPosfixa
                 //        MessageBox.Show(values[j].ToString());
                 //    }
                 //}
+
                 lbSequencias.Text = "Infixa: ";
                 int j = 0;
                 foreach (var caracter in values)
@@ -91,7 +87,7 @@ namespace CalculadoraPosfixa
 
                     if (!"+-*/^()".Contains(values[j]))
                     {
-                        
+
 
                         MessageBox.Show(values[j].ToString());
 
@@ -112,7 +108,7 @@ namespace CalculadoraPosfixa
                 }
                 MessageBox.Show(values.Length.ToString());
 
-
+                ConverterInfixaParaPosfixa(lbSequencias.Text);
                 //foreach (var caracter in values)
                 //{
                 //    MessageBox.Show(caracter);
@@ -127,10 +123,6 @@ namespace CalculadoraPosfixa
                 MessageBox.Show("Digite a expressão!");
                 txtVisor.Focus();
             }
-
-            double resultado = 1;
-            txtResultado.Text = resultado.ToString();
-            
         }
         private void btnLimpar_Click(object sender, EventArgs e)
         {
@@ -147,66 +139,69 @@ namespace CalculadoraPosfixa
 
         bool EhOperador(char caracter)
         {
-            return "+-^/*".Contains(caracter);
+            return "+-^/*(".Contains(caracter);
         }
-        public static int TerPrecedencia(PilhaLista<char> pilha, char op)   // devolve a prioridade do operador
+        public static int TerPrecedencia(char op)   // devolve a prioridade do operador
         {
             int p = 0;
 
             switch (op)
             {
                 case '(': p = 1; break;
-
-                case '+':
-                case '-': p = 2; break;
-
+                
+                case '^': p = 2; break;
+                
                 case '*':
                 case '/': p = 3; break;
+                
+                case '+':
+                case '-': p = 4; break;
             }
 
             return (p);
         }
 
-        //string ConverterInfixaParaPosfixa(string cadeiaLida)
-        //{
-        //    string resultado = "";
-            
-        //    for (int indice = 0; indice < cadeiaLida.Length; indice++)
-        //    {
-        //        char simboloLido = cadeiaLida[indice];
-        //        if (!EhOperador(simboloLido)) // not In [‘(‘,’)’,’+’,’-‘,’*’,’/’,’’] 
-        //            resultado += simboloLido; // escreve Operando na saída
-        //        else // operador
-        //        {
-        //            bool parar = false;
-        //            while (!parar && !umaPilha.EstaVazia &&
-        //            TerPrecedencia(umaPilha.OTopo(), simboloLido))
-        //            {
-        //                char operadorComMaiorPrecedencia = umaPilha.Desempilhar();
-        //                if (operadorComMaiorPrecedencia != '(')
-        //                    resultado += operadorComMaiorPrecedencia;
-        //                else
-        //                    parar = true;
-        //            }
-        //            if (simboloLido != ')')
-        //                umaPilha.Empilhar(simboloLido);
-        //            else // fará isso QUANDO o Pilha[TOPO] = ‘(‘
-        //            {
-        //                char operadorComMaiorPrecedencia;
-        //                operadorComMaiorPrecedencia = umaPilha.Desempilhar();
-        //            }
+        string ConverterInfixaParaPosfixa(string cadeiaLida)
+        {
+            string resultado = "";
 
-        //        }
-        //    } // for
-        //    while (!umaPilha.EstaVazia) // Descarrega a Pilha Para a Saída
-        //    {
-        //        char operadorComMaiorPrecedencia;
-        //        operadorComMaiorPrecedencia = umaPilha.Desempilhar();
-        //        if (operadorComMaiorPrecedencia != '(')
-        //            resultado += operadorComMaiorPrecedencia;
-        //    }
-        //    return resultado;
-        //}
+            for (int indice = 0; indice < cadeiaLida.Length; indice++)
+            {
+                char simboloLido = cadeiaLida[indice];
+                if (!EhOperador(simboloLido)) // not In [‘(‘,’)’,’+’,’-‘,’*’,’/’,’’] 
+                    resultado += simboloLido; // escreve Operando na saída
+                else // operador
+                {
+                    bool parar = false;
+                    while (!parar && !umaPilha.EstaVazia &&
+                    TerPrecedencia(umaPilha.OTopo()) <= TerPrecedencia(simboloLido))
+                    {
+                        char operadorComMaiorPrecedencia = umaPilha.Desempilhar();
+                        if (operadorComMaiorPrecedencia != '(')
+                            resultado += operadorComMaiorPrecedencia;
+                        else
+                            parar = true;
+                    }
+                    if (simboloLido != ')')
+                        umaPilha.Empilhar(simboloLido);
+                    else // fará isso QUANDO o Pilha[TOPO] = ‘(‘
+                    {
+                        char operadorComMaiorPrecedencia;
+                        operadorComMaiorPrecedencia = umaPilha.Desempilhar();
+                    }
+
+                }
+            } // for
+            while (!umaPilha.EstaVazia) // Descarrega a Pilha Para a Saída
+            {
+                char operadorComMaiorPrecedencia;
+                operadorComMaiorPrecedencia = umaPilha.Desempilhar();
+                if (operadorComMaiorPrecedencia != '(')
+                    resultado += operadorComMaiorPrecedencia;
+            }
+            txtResultado.Text = resultado.ToString();
+            return resultado;
+        }
 
         /////EXERCICIO DO CHICO SOBRE BALANCEAMENTO DE PARENTESES
         bool EhAbertura(char caracter)
