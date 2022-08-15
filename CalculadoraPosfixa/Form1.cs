@@ -147,6 +147,7 @@ namespace CalculadoraPosfixa
 
             switch (op)
             {
+                case ')': p = 5; break;
                 case '(': p = 1; break;
                 
                 case '^': p = 2; break;
@@ -160,6 +161,7 @@ namespace CalculadoraPosfixa
 
             return (p);
         }
+        
 
         string ConverterInfixaParaPosfixa(string cadeiaLida)
         {
@@ -179,8 +181,11 @@ namespace CalculadoraPosfixa
                         char operadorComMaiorPrecedencia = umaPilha.Desempilhar();
                         if (operadorComMaiorPrecedencia != '(')
                             resultado += operadorComMaiorPrecedencia;
-                        else
+                        else {
+                            umaPilha.Empilhar(operadorComMaiorPrecedencia);
                             parar = true;
+
+                        }
                     }
                     if (simboloLido != ')')
                         umaPilha.Empilhar(simboloLido);

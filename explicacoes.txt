@@ -1,0 +1,45 @@
+Caracteres válidos para digitação:
+dígitos
+.
+operadores (, ), +, - , *, /, ^
+
+Conforme digitar no txtVisor, analisa se o 
+que foi digitado é válido. Se não for, avise
+o usuário. Pode-se melhorar esse processo.
+
+Não é para calcular nada enquanto digita.
+Somente no evento Click do btnIgual será feita
+a conversão de infixa para pósfixa e o cálculo
+subsequente.
+
+Para cada valor digitado, deve-se separá-lo, 
+guardá-lo sequencialmente, num vetor de valores 
+reais e associar uma letra numa string que 
+representa a cadeia infixa:
+
+txtVisor:
+(69.7+52/(5^64.1))   "64.1" 'A','B','C','D','E'
+
+infixa:
+(A+B/(C^D))
+
+vetor de valores:
+  0    1    2    3   4    5 ... 25
+69.7 52.0  5.0 64.1
+qtosValores: 1, 2, 3, 4
+
+0 ==> 'A'
+1 ==> 'B'
+2 ==> 'C'
+...
+
+pósfixa:
+ABCD^/+
+
+cálculo
+69.7 52.0 5.0 64.1 ^ / +
+
+parâmetro e do evento Click do botão
+pode ser usado para obter o Text do
+botão e acoplar essa string no final
+do txtVisor
