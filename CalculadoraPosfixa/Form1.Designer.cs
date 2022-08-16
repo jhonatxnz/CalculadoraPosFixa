@@ -57,13 +57,14 @@ namespace CalculadoraPosfixa
             // 
             // txtVisor
             // 
+            this.txtVisor.Enabled = false;
             this.txtVisor.Location = new System.Drawing.Point(13, 69);
             this.txtVisor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtVisor.Name = "txtVisor";
+            this.txtVisor.ReadOnly = true;
             this.txtVisor.Size = new System.Drawing.Size(494, 26);
             this.txtVisor.TabIndex = 0;
             this.txtVisor.TextChanged += new System.EventHandler(this.txtVisor_TextChanged);
-            this.txtVisor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtVisor_KeyDown);
             this.txtVisor.Leave += new System.EventHandler(this.txtVisor_Leave);
             // 
             // label1
@@ -78,6 +79,7 @@ namespace CalculadoraPosfixa
             // 
             // txtResultado
             // 
+            this.txtResultado.Enabled = false;
             this.txtResultado.Location = new System.Drawing.Point(13, 105);
             this.txtResultado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtResultado.Name = "txtResultado";
@@ -105,7 +107,7 @@ namespace CalculadoraPosfixa
             this.btnPotencia.TabIndex = 4;
             this.btnPotencia.Text = "^";
             this.btnPotencia.UseVisualStyleBackColor = false;
-            this.btnPotencia.Click += new System.EventHandler(this.botoes_Click);
+            this.btnPotencia.Click += new System.EventHandler(this.botoesOperadores_Click);
             // 
             // btnDivisao
             // 
@@ -117,7 +119,7 @@ namespace CalculadoraPosfixa
             this.btnDivisao.TabIndex = 5;
             this.btnDivisao.Text = "/";
             this.btnDivisao.UseVisualStyleBackColor = false;
-            this.btnDivisao.Click += new System.EventHandler(this.botoes_Click);
+            this.btnDivisao.Click += new System.EventHandler(this.botoesOperadores_Click);
             // 
             // btnMultiplicar
             // 
@@ -129,7 +131,7 @@ namespace CalculadoraPosfixa
             this.btnMultiplicar.TabIndex = 6;
             this.btnMultiplicar.Text = "*";
             this.btnMultiplicar.UseVisualStyleBackColor = false;
-            this.btnMultiplicar.Click += new System.EventHandler(this.botoes_Click);
+            this.btnMultiplicar.Click += new System.EventHandler(this.botoesOperadores_Click);
             // 
             // btnSubtrair
             // 
@@ -141,7 +143,7 @@ namespace CalculadoraPosfixa
             this.btnSubtrair.TabIndex = 7;
             this.btnSubtrair.Text = "-";
             this.btnSubtrair.UseVisualStyleBackColor = false;
-            this.btnSubtrair.Click += new System.EventHandler(this.botoes_Click);
+            this.btnSubtrair.Click += new System.EventHandler(this.botoesOperadores_Click);
             // 
             // button5
             // 
@@ -189,7 +191,7 @@ namespace CalculadoraPosfixa
             this.btnAdicionar.TabIndex = 11;
             this.btnAdicionar.Text = "+";
             this.btnAdicionar.UseVisualStyleBackColor = false;
-            this.btnAdicionar.Click += new System.EventHandler(this.botoes_Click);
+            this.btnAdicionar.Click += new System.EventHandler(this.botoesOperadores_Click);
             // 
             // button9
             // 
@@ -285,7 +287,7 @@ namespace CalculadoraPosfixa
             this.btnParenteses.TabIndex = 19;
             this.btnParenteses.Text = ")";
             this.btnParenteses.UseVisualStyleBackColor = false;
-            this.btnParenteses.Click += new System.EventHandler(this.botoes_Click);
+            this.btnParenteses.Click += new System.EventHandler(this.botoesOperadores_Click);
             // 
             // button17
             // 
@@ -333,7 +335,7 @@ namespace CalculadoraPosfixa
             this.btnParenteses2.TabIndex = 23;
             this.btnParenteses2.Text = "(";
             this.btnParenteses2.UseVisualStyleBackColor = false;
-            this.btnParenteses2.Click += new System.EventHandler(this.botoes_Click);
+            this.btnParenteses2.Click += new System.EventHandler(this.botoesOperadores_Click);
             // 
             // calculadora
             // 

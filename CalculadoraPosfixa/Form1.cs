@@ -42,20 +42,13 @@ namespace CalculadoraPosfixa
         {
             //mostrar essa parte
             char letra = (sender as Button).Text[0];
-            if (letra.ToString() == ".")
-            {
-                if (txtVisor.Text == "")
-                {
-                    MessageBox.Show("Expressão iniciada de maneira incorreta");
-                }
-                else
-                {
-                    txtVisor.Text = txtVisor.Text.Substring(0, txtVisor.Text.Length - 1);
-                    txtVisor.Text += letra.ToString();
-                }
-            }
-            else
-                txtVisor.Text += letra.ToString() + " ";
+            txtVisor.Text += letra.ToString(); 
+        }
+        private void botoesOperadores_Click(object sender, EventArgs e)
+        {
+            char operador = (sender as Button).Text[0];
+            txtVisor.Text += " " + operador + " "; 
+
         }
         private void btnIgual_Click(object sender, EventArgs e)
         {
@@ -63,7 +56,10 @@ namespace CalculadoraPosfixa
 
             if (txtVisor.Text != cadeiaVazia.ToString())
             {
-                Balanceamento(txtVisor.Text);
+                if (!Balanceamento(txtVisor.Text)) {
+                    lbSequencias.Text = " ";
+                }
+
                 txtVisor.Text = txtVisor.Text.TrimEnd(cadeiaVazia);
                 lbSequencias.Text = "";
                 PilhaLista<string> operadores = new PilhaLista<string>();
@@ -99,7 +95,8 @@ namespace CalculadoraPosfixa
                     j++;
                 }
                 
-                ConverterInfixaParaPosfixa(lbSequencias.Text);
+                ConverterInfixaParaPosfixa(txtVisor.Text);
+                //ConverterInfixaParaPosfixa(lbSequencias.Text);
                 //foreach (var caracter in values)
                 //{
                 //    MessageBox.Show(caracter);
@@ -203,18 +200,18 @@ namespace CalculadoraPosfixa
         ///CALCULA EXPRESSAO POSFIXA
         //double ValorDaExpressaoPosfixa(string cadeiaPosfixa)
         //{
-        //    umaPilha = new PilhaLista<double>;
+        //    PilhaLista<double> umaPilha = new PilhaLista<double>();
         //    for (int atual = 0; atual < cadeiaPosfixa.Length; atual++)
         //    {
         //        char simbolo = cadeiaPosfixa[atual];
         //        if (!EhOperador(simbolo)) // É Operando 
-        //            umaPilha.Empilhar(ValorDe[símbolo -‘A’]);
+        //            umaPilha.Empilhar(ValorDe[simbolo - 'A']);
         //        else
         //        {
         //            double operando2 = umaPilha.Desempilhar();
         //            double operando1 = umaPilha.Desempilhar();
         //            double valor = ValorDaSubExpressao(operando1, simbolo, operando2);
-        //            umaPilha.empilhar(Valor);
+        //            umaPilha.Empilhar(valor);
         //        }
         //    }
         //    return umaPilha.Desempilhar();
@@ -242,18 +239,19 @@ namespace CalculadoraPosfixa
                 PilhaLista<char> pilha = new PilhaLista<char>(); //new PilhaVetor<char>(200);
                 string cadeia = expressao;
                 bool erro = false;
+                int abertos = 0;
+                int fechados = 0;
                 for (int i = 0; i < cadeia.Length && !erro; i++)
                 {
                     char caracterLido = cadeia[i];
-                    if (EhAbertura(caracterLido))
+                    if (EhAbertura(caracterLido)) {
+                        abertos++;
                         pilha.Empilhar(caracterLido);
-                    else if (!EhAbertura(caracterLido) && !EhFechamento(caracterLido))
-                    {
-                        i++;
                     }
                     else
                       if (EhFechamento(caracterLido))
                     {
+                        fechados++;
                         char aberturaAnterior = ' ';
                         try
                         {
@@ -270,23 +268,17 @@ namespace CalculadoraPosfixa
                             erro = true;
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("expressao nao balanceada!");
-                        erro = true;
-                    }
+                }
+                if (abertos != fechados)
+                {
+                    MessageBox.Show("expressao nao balanceada!");
+                    erro = true;
                 }
                 return true;
             }
             return false;
         }
 
-        private void txtVisor_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyValue == 189)
-            {
-               
-            }
-        }
+        
     }
 }
