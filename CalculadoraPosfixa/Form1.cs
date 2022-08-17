@@ -66,20 +66,15 @@ namespace CalculadoraPosfixa
                 string expressao = txtVisor.Text;
 
                 string[] values = expressao.Split(' ');
-
+                
                 char letra = 'A';
 
-                //for (int j = 0; j < values.Length; j++)
-                //{
-                //    if ("1234567890.".Contains(values[j]))
-                //    {
-                //        MessageBox.Show(values[j].ToString());
-                //        values[j] = letra++.ToString();
-                //        MessageBox.Show(values[j].ToString());
-                //    }
-                //}
+                
+                txtResultado.Text = ConverterInfixaParaPosfixa(expressao);
+                MessageBox.Show(values[1]);
 
                 int j = 0;
+
                 foreach (var caracter in values)
                 {
                     if (!"+-*/^()".Contains(values[j]))
@@ -95,16 +90,7 @@ namespace CalculadoraPosfixa
                     j++;
                 }
                 
-                ConverterInfixaParaPosfixa(txtVisor.Text);
-                //ConverterInfixaParaPosfixa(lbSequencias.Text);
-                //foreach (var caracter in values)
-                //{
-                //    MessageBox.Show(caracter);
-                //}
-                //MessageBox.Show(values.Length.ToString());
-
-                //for (int i = 0; i < values.Length; i++){
-                //}
+                lbSequencias.Text += "------------" + ConverterInfixaParaPosfixa(lbSequencias.Text).ToString();
             }
             else
             {
@@ -194,28 +180,51 @@ namespace CalculadoraPosfixa
                 if (operadorComMaiorPrecedencia != '(')
                     resultado += operadorComMaiorPrecedencia;
             }
-            lbSequencias.Text += "--------" +  resultado.ToString();
             return resultado;
         }
         ///CALCULA EXPRESSAO POSFIXA
-        //double ValorDaExpressaoPosfixa(string cadeiaPosfixa)
-        //{
-        //    PilhaLista<double> umaPilha = new PilhaLista<double>();
-        //    for (int atual = 0; atual < cadeiaPosfixa.Length; atual++)
-        //    {
-        //        char simbolo = cadeiaPosfixa[atual];
-        //        if (!EhOperador(simbolo)) // É Operando 
-        //            umaPilha.Empilhar(ValorDe[simbolo - 'A']);
-        //        else
-        //        {
-        //            double operando2 = umaPilha.Desempilhar();
-        //            double operando1 = umaPilha.Desempilhar();
-        //            double valor = ValorDaSubExpressao(operando1, simbolo, operando2);
-        //            umaPilha.Empilhar(valor);
-        //        }
-        //    }
-        //    return umaPilha.Desempilhar();
-        //}
+        
+        double ValorDaSubExpressao(double op, char simbolo, double op2)
+        {
+            double resultado = 0;
+            switch (simbolo)
+            {
+                case '^': resultado = Math.Pow(op,op2);
+                    break;
+
+                case '*': resultado = op * op2;
+                    break;
+
+                case '/': resultado = op / op2;
+                    break;
+
+                case '+': resultado = op + op2;
+                    break;
+
+                case '-': resultado = op - op2;
+                    break;
+            }
+            return resultado;
+        }
+        double ValorDaExpressaoPosfixa(string cadeiaPosfixa)
+        {
+            
+            PilhaLista<double> umaPilha = new PilhaLista<double>();
+            for (int atual = 0; atual < cadeiaPosfixa.Length; atual++)
+            {
+                char simbolo = cadeiaPosfixa[atual];
+                if (!EhOperador(simbolo)) // É Operando 
+                    umaPilha.Empilhar(ValorDe[simbolo - 'A']);
+                else
+                {
+                    double operando2 = umaPilha.Desempilhar();
+                    double operando1 = umaPilha.Desempilhar();
+                    double valor = ValorDaSubExpressao(operando1, simbolo, operando2);
+                    umaPilha.Empilhar(valor);
+                }
+            }
+            return umaPilha.Desempilhar();
+        }
         /////EXERCICIO DO CHICO SOBRE BALANCEAMENTO DE PARENTESES
         bool EhAbertura(char caracter)
         {
@@ -278,7 +287,5 @@ namespace CalculadoraPosfixa
             }
             return false;
         }
-
-        
     }
 }
