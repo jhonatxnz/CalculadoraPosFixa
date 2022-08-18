@@ -69,7 +69,11 @@ namespace CalculadoraPosfixa
                 
                 char letra = 'A';
 
-                
+                //for(int i =0;i< values.Length; i++)
+                //{
+                //    ConverterInfixaParaPosfixa(values[i]);
+                //}
+
                 txtResultado.Text = ConverterInfixaParaPosfixa(expressao);
                 MessageBox.Show(values[1]);
 
@@ -206,25 +210,25 @@ namespace CalculadoraPosfixa
             }
             return resultado;
         }
-        double ValorDaExpressaoPosfixa(string cadeiaPosfixa)
-        {
+        //double ValorDaExpressaoPosfixa(string cadeiaPosfixa)
+        //{
             
-            PilhaLista<double> umaPilha = new PilhaLista<double>();
-            for (int atual = 0; atual < cadeiaPosfixa.Length; atual++)
-            {
-                char simbolo = cadeiaPosfixa[atual];
-                if (!EhOperador(simbolo)) // É Operando 
-                    umaPilha.Empilhar(ValorDe[simbolo - 'A']);
-                else
-                {
-                    double operando2 = umaPilha.Desempilhar();
-                    double operando1 = umaPilha.Desempilhar();
-                    double valor = ValorDaSubExpressao(operando1, simbolo, operando2);
-                    umaPilha.Empilhar(valor);
-                }
-            }
-            return umaPilha.Desempilhar();
-        }
+        //    PilhaLista<double> umaPilha = new PilhaLista<double>();
+        //    for (int atual = 0; atual < cadeiaPosfixa.Length; atual++)
+        //    {
+        //        char simbolo = cadeiaPosfixa[atual];
+        //        if (!EhOperador(simbolo)) // É Operando 
+        //            umaPilha.Empilhar(ValorDe[simbolo - 'A']);
+        //        else
+        //        {
+        //            double operando2 = umaPilha.Desempilhar();
+        //            double operando1 = umaPilha.Desempilhar();
+        //            double valor = ValorDaSubExpressao(operando1, simbolo, operando2);
+        //            umaPilha.Empilhar(valor);
+        //        }
+        //    }
+        //    return umaPilha.Desempilhar();
+        //}
         /////EXERCICIO DO CHICO SOBRE BALANCEAMENTO DE PARENTESES
         bool EhAbertura(char caracter)
         {
