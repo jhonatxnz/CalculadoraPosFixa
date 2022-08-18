@@ -66,6 +66,15 @@ namespace CalculadoraPosfixa
                 string expressao = txtVisor.Text;
 
                 string[] values = expressao.Split(' ');
+                PilhaLista<double> valoresNumericos = new PilhaLista<double>();
+
+                for (int i = 0; i < values.Length; i++)
+                {
+                    if (!EhOperador(values[i][0]))
+                    {
+                        valoresNumericos.Empilhar(double.Parse(values[i]));
+                    }
+                }
                 
                 char letra = 'A';
 
@@ -93,8 +102,25 @@ namespace CalculadoraPosfixa
                     }
                     j++;
                 }
+
+                string posfixaComValores = ConverterInfixaParaPosfixa(lbSequencias.Text).ToString(); ;
+
+                PilhaLista<double> valoresNumericosInvertidos = new PilhaLista<double>();
+
+                while (!valoresNumericos.EstaVazia)
+                {
+                    valoresNumericosInvertidos.Empilhar(valoresNumericos.Desempilhar());
+                }
+
+                int contador = 0;
+
+                while (!valoresNumericosInvertidos.EstaVazia)
+                {
+                    posfixaComValores = posfixaComValores.Replace((char)(65 + contador++), valoresNumericosInvertidos.Desempilhar().ToString()[0]);
+                }
                 
-                lbSequencias.Text += "------------" + ConverterInfixaParaPosfixa(lbSequencias.Text).ToString();
+                lbSequencias.Text += "------------" + posfixaComValores;
+                txtResultado.Text = ValorDaExpressaoPosfixa(posfixaComValores).ToString();
             }
             else
             {
@@ -210,25 +236,25 @@ namespace CalculadoraPosfixa
             }
             return resultado;
         }
-        //double ValorDaExpressaoPosfixa(string cadeiaPosfixa)
-        //{
-            
-        //    PilhaLista<double> umaPilha = new PilhaLista<double>();
-        //    for (int atual = 0; atual < cadeiaPosfixa.Length; atual++)
-        //    {
-        //        char simbolo = cadeiaPosfixa[atual];
-        //        if (!EhOperador(simbolo)) // É Operando 
-        //            umaPilha.Empilhar(ValorDe[simbolo - 'A']);
-        //        else
-        //        {
-        //            double operando2 = umaPilha.Desempilhar();
-        //            double operando1 = umaPilha.Desempilhar();
-        //            double valor = ValorDaSubExpressao(operando1, simbolo, operando2);
-        //            umaPilha.Empilhar(valor);
-        //        }
-        //    }
-        //    return umaPilha.Desempilhar();
-        //}
+        double ValorDaExpressaoPosfixa(string cadeiaPosfixa)
+        {
+
+            PilhaLista<double> umaPilha = new PilhaLista<double>();
+            for (int atual = 0; atual < cadeiaPosfixa.Length; atual++)
+            {
+                char simbolo = cadeiaPosfixa[atual];
+                if (!EhOperador(simbolo)) // É Operando 
+                    umaPilha.Empilhar(valorDe[simbolo - 'A']);
+                else
+                {
+                    double operando2 = umaPilha.Desempilhar();
+                    double operando1 = umaPilha.Desempilhar();
+                    double valor = ValorDaSubExpressao(operando1, simbolo, operando2);
+                    umaPilha.Empilhar(valor);
+                }
+            }
+            return umaPilha.Desempilhar();
+        }
         /////EXERCICIO DO CHICO SOBRE BALANCEAMENTO DE PARENTESES
         bool EhAbertura(char caracter)
         {
